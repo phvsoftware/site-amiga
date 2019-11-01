@@ -1,5 +1,4 @@
 const clickIconDesktop = () => {
-  console.log("click");
   // on fait toucher le logo
   const icon = document.getElementById("darkMode");
   icon.classList.add("rotate-icon");

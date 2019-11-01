@@ -38,3 +38,5 @@ el.addEventListener("click", clickIconDesktop, false);
 
 const el2 = document.getElementById("burgerMenu");
 el2.addEventListener("click", clickBurgerMenu, false);
+
+// Smooth scroll

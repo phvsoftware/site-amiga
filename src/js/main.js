@@ -1,9 +1,13 @@
+let darkMode = false;
+let burgerOpen = false;
+
 const clickIconDesktop = () => {
   // on fait toucher le logo
   const icon = document.getElementById("darkMode");
-  icon.classList.add("rotate-icon");
+  if (icon === null) return;
+  icon.classList.toggle("rotate-icon");
   setTimeout(() => {
-    icon.classList.remove("rotate-icon");
+    icon.classList.toggle("rotate-icon");
   }, 500);
 
   // change le theme
@@ -27,11 +31,15 @@ const clickBurgerMenu = () => {
   }
 };
 
-let darkMode = false;
-let burgerOpen = false;
+document.addEventListener(
+  "DOMContentLoaded",
+  () => {
+    const elem = document.getElementById("darkMode");
+    elem.addEventListener("click", clickIconDesktop, false);
 
-const el = document.getElementById("darkMode");
-el.addEventListener("click", clickIconDesktop, false);
-
-const el2 = document.getElementById("burgerMenu");
-el2.addEventListener("click", clickBurgerMenu, false);
+    const el2 = document.getElementById("burgerMenu");
+    console.log("test7", el2);
+    el2.addEventListener("click", clickBurgerMenu, false);
+  },
+  false
+);

@@ -871,8 +871,14 @@ a {
   }
 }
 
+.icon-dark {
+  display: inline-block;
+  transition: transform 0.5s ease;
+}
+
 .rotate-icon {
-  -webkit-animation: rotating 0.5s linear;
+  transform: rotate(-90deg);
+  /* -webkit-animation: rotating 0.5s linear; */
 }
 
 #logoDesktop {

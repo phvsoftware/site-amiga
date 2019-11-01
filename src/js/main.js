@@ -38,7 +38,6 @@ document.addEventListener(
     elem.addEventListener("click", clickIconDesktop, false);
 
     const el2 = document.getElementById("burgerMenu");
-    console.log("test7", el2);
     el2.addEventListener("click", clickBurgerMenu, false);
   },
   false

@@ -49,6 +49,8 @@ a {
 
 .burger-navbar-open {
   display: flex;
+  background-color: var(--grey);
+  color: var(--black);
 }
 
 /* Smartphones et tablettes */

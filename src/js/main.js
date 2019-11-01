@@ -1,5 +1,3 @@
-console.log("it works");
-
 const clickIconDesktop = () => {
   console.log("click");
   // on fait toucher le logo
@@ -33,10 +31,8 @@ const clickBurgerMenu = () => {
 let darkMode = false;
 let burgerOpen = false;
 
-let el = document.getElementById("darkMode");
+const el = document.getElementById("darkMode");
 el.addEventListener("click", clickIconDesktop, false);
 
 const el2 = document.getElementById("burgerMenu");
 el2.addEventListener("click", clickBurgerMenu, false);
-
-// Smooth scroll

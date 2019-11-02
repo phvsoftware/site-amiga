@@ -69,6 +69,21 @@ const addToCart = () => {
   el.innerHTML = articleCount;
 };
 
+const onCartClick = () => {
+  let str = "";
+  if (articleCount === 0) {
+    str = "Aucun article n'a été ajouté :(";
+  } else if (articleCount === 42) {
+    document.getElementById("AZE").style.display = "block";
+    return;
+  } else if (articleCount < 42) {
+    str = `Il y a ${articleCount} articles dans le panier, achète encore un peu...`;
+  } else if (articleCount > 42) {
+    str = `Il y a ${articleCount} articles dans le panier, tu dépenses trop !`;
+  }
+  alert(str);
+};
+
 document.addEventListener(
   "DOMContentLoaded",
   () => {
@@ -92,6 +107,9 @@ document.addEventListener(
     for (let i = 0; i < el7.length; i++) {
       el7[i].addEventListener("click", addToCart, false);
     }
+
+    const el8 = document.getElementsByClassName("cart-item")[0];
+    el8.addEventListener("click", onCartClick, false);
   },
   false
 );

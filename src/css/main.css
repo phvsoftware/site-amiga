@@ -166,6 +166,7 @@ a {
   .cart-item {
     position: relative;
     display: flex;
+    cursor: pointer;
   }
 
   .count {
@@ -1051,4 +1052,18 @@ a {
 
 #topButton:hover {
   background-color: #555;
+}
+
+/* Autres... */
+
+.discretImg {
+  background-image: url("../../assets/easter-egg.jpg");
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 999;
+  position: fixed;
+  display: none;
 }

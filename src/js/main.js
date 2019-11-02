@@ -1,5 +1,6 @@
 let darkMode = false;
 let burgerOpen = false;
+let articleCount = 0;
 
 const clickIconDesktop = () => {
   // on fait toucher le logo
@@ -31,14 +32,66 @@ const clickBurgerMenu = () => {
   }
 };
 
+const closeBurgerMenu = () => {
+  burgerOpen = false;
+  const el = document.getElementById("burgerMenuNavbar");
+  el.classList.remove("burger-navbar-open");
+  el.classList.add("burger-navbar-close");
+};
+
+//Top button
+const topbutton = document.getElementById("topButton");
+window.onscroll = () => {
+  scrollFunction();
+};
+
+const scrollFunction = () => {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    topbutton.style.display = "block";
+  } else {
+    topbutton.style.display = "none";
+  }
+  // scroll progress bar
+  const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  document.getElementById("scrollProgressBar").style.width = scrolled + "%";
+};
+
+const topFunction = () => {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+};
+
+const addToCart = () => {
+  articleCount++;
+  const el = document.getElementsByClassName("count")[0];
+  el.innerHTML = articleCount;
+};
+
 document.addEventListener(
   "DOMContentLoaded",
   () => {
-    const elem = document.getElementById("darkMode");
-    elem.addEventListener("click", clickIconDesktop, false);
+    const el1 = document.getElementById("darkMode");
+    el1.addEventListener("click", clickIconDesktop, false);
 
     const el2 = document.getElementById("burgerMenu");
     el2.addEventListener("click", clickBurgerMenu, false);
+
+    const el3 = document.getElementById("burgerMenu1");
+    el3.addEventListener("click", closeBurgerMenu, true);
+    const el4 = document.getElementById("burgerMenu2");
+    el4.addEventListener("click", closeBurgerMenu, true);
+    const el5 = document.getElementById("burgerMenu3");
+    el5.addEventListener("click", closeBurgerMenu, true);
+
+    const el6 = document.getElementById("topButton");
+    el6.addEventListener("click", topFunction, false);
+
+    const el7 = document.getElementsByClassName("white-button");
+    for (let i = 0; i < el7.length; i++) {
+      el7[i].addEventListener("click", addToCart, false);
+    }
   },
   false
 );

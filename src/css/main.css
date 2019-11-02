@@ -12,6 +12,7 @@
   --white: white;
   --transparent-white: rgba(240, 240, 240, 0.8);
   --product-background: rgb(164, 164, 226);
+  --scroll-progress-bar: rgb(111, 135, 240);
 }
 
 [data-theme="dark"] {
@@ -22,6 +23,7 @@
   --white: #050505;
   --transparent-white: rgba(15, 15, 15, 0.8);
   --product-background: rgb(58, 58, 82);
+  --scroll-progress-bar: rgb(34, 72, 240);
 }
 
 /* Ne marche pas sur Safari */
@@ -48,6 +50,9 @@ a {
 }
 
 .burger-navbar-open {
+  position: fixed;
+  top: 40px;
+  right: 10px;
   display: flex;
   background-color: var(--grey);
   color: var(--black);
@@ -63,6 +68,9 @@ a {
     padding: 0.5rem 0.5rem;
     font-family: "Space Mono", monospace;
     color: var(--black);
+    position: fixed;
+    width: 100%;
+    z-index: 2;
   }
 
   nav {
@@ -125,6 +133,9 @@ a {
     padding: 1rem 3rem;
     font-family: "Space Mono", monospace;
     color: var(--black);
+    position: fixed;
+    width: 100%;
+    z-index: 2;
   }
 
   nav {
@@ -170,6 +181,46 @@ a {
     top: -0.5rem;
     right: -0.5rem;
     color: black;
+  }
+}
+
+/* ------------------------- Scroll progress bar --------------------- */
+
+/* Smartphones et tablettes */
+@media (max-width: 850px) {
+  .progress-container {
+    position: fixed;
+    display: flex;
+    left: 0;
+    top: 44px;
+    width: 100%;
+    height: 4px;
+    background: var(--grey);
+  }
+
+  .progress-bar {
+    height: 4px;
+    background: var(--scroll-progress-bar);
+    width: 0%;
+  }
+}
+
+/* Ordinateur */
+@media (min-width: 850px) {
+  .progress-container {
+    position: fixed;
+    display: flex;
+    left: 0;
+    top: 70px;
+    width: 100%;
+    height: 8px;
+    background: var(--grey);
+  }
+
+  .progress-bar {
+    height: 8px;
+    background: var(--scroll-progress-bar);
+    width: 0%;
   }
 }
 
@@ -578,6 +629,12 @@ a {
     background-color: var(--white);
     color: var(--black);
   }
+
+  .white-button:active {
+    background-color: rgb(145, 145, 145);
+    box-shadow: 0 1px #666;
+    transform: translateY(2px);
+  }
 }
 
 .white-button-big {
@@ -633,7 +690,7 @@ a {
 
   .about-box {
     height: 40vh;
-    background-color: white;
+    background-color: var(--transparent-white);
     padding-top: 10px;
     padding-left: 20px;
     padding-right: 20px;
@@ -642,7 +699,7 @@ a {
     flex-direction: column;
     align-items: flex-start;
     /* justify-content: space-between; */
-    background-color: var(--grey);
+    /* background-color: var(--grey); */
   }
 
   .about-box h1 {
@@ -669,7 +726,7 @@ a {
 @media (min-width: 850px) {
   .about {
     height: 100vh;
-    background-image: url("../../assets/amiga-showroom1.jpg");
+    /* background-image: url("../../assets/amiga-showroom1.jpg"); */
     background-position: bottom;
     background-size: cover;
     background-repeat: no-repeat;
@@ -680,7 +737,7 @@ a {
 
   .about-box {
     height: 90vh;
-    background-color: white;
+    background-color: var(--transparent-white);
     padding-top: 180px;
     padding-left: 100px;
     padding-right: 100px;
@@ -689,7 +746,7 @@ a {
     flex-direction: column;
     align-items: flex-start;
     /* justify-content: space-between; */
-    background-color: var(--grey);
+    /* background-color: var(--grey); */
   }
 
   .about-box h1 {
@@ -885,4 +942,103 @@ a {
 
 #logoDesktop {
   cursor: pointer;
+}
+
+/* ------------------------- Vidéo en fond --------------------- */
+
+.video-background {
+  background: #000;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -99;
+}
+.video-foreground,
+.video-background iframe {
+  position: absolute;
+  top: 0;
+  left: -10%;
+  width: 150%;
+  height: 100%;
+  pointer-events: none;
+}
+#vidtop-content {
+  top: 0;
+  color: #fff;
+}
+.vid-info {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 33%;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  padding: 1rem;
+  font-family: Avenir, Helvetica, sans-serif;
+}
+.vid-info h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 0;
+  line-height: 1.2;
+}
+.vid-info a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0.5);
+  transition: 0.6s background;
+  border-bottom: none;
+  margin: 1rem auto;
+  text-align: center;
+}
+@media (min-aspect-ratio: 16/9) {
+  .video-foreground {
+    height: 300%;
+    top: -100%;
+  }
+}
+@media (max-aspect-ratio: 16/9) {
+  .video-foreground {
+    width: 300%;
+    left: -100%;
+  }
+}
+@media all and (max-width: 600px) {
+  .vid-info {
+    width: 50%;
+    padding: 0.5rem;
+  }
+  .vid-info h1 {
+    margin-bottom: 0.2rem;
+  }
+}
+@media all and (max-width: 500px) {
+  .vid-info .acronym {
+    display: none;
+  }
+}
+
+/* ------------------------- Bouton Scroll Top --------------------- */
+
+#topButton {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background-color: rgba(128, 128, 128, 0.6);
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+#topButton:hover {
+  background-color: #555;
 }

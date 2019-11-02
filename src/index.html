@@ -10,6 +10,22 @@
   </head>
 
   <body>
+    <button id="topButton" title="Retour en haut de la page">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="30"
+        height="30"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M12 19V6M5 12l7-7 7 7" />
+      </svg>
+    </button>
+
     <header>
       <!-- -------------------- Navbar --------------------  -->
 
@@ -61,7 +77,7 @@
           <li class="menu-items"><a href="#about">Philosophie</a></li>
         </ul>
         <div class="cart-item">
-          <div class="count">2</div>
+          <div class="count">0</div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="32"
@@ -77,16 +93,21 @@
           </svg>
         </div>
       </nav>
+      <div id="burgerMenuNavbar" class="burger-navbar-close">
+        <nav>
+          <ul>
+            <li><a href="#collection-header" id="burgerMenu1">Collection</a></li>
+            <li><a href="#products-header" id="burgerMenu2">Produits</a></li>
+            <li><a href="#about" id="burgerMenu3">Philosophie</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Scroll progress bar -->
+      <div class="progress-container">
+        <div class="progress-bar" id="scrollProgressBar"></div>
+      </div>
     </header>
-    <div id="burgerMenuNavbar" class="burger-navbar-close">
-      <nav>
-        <ul>
-          <li><a href="#collection-header">Collection</a></li>
-          <li><a href="#products-header">Produits</a></li>
-          <li><a href="#about">Philosophie</a></li>
-        </ul>
-      </nav>
-    </div>
 
     <section class="hero">
       <h2 class="main-title">Amiga vaincra !</h2>
@@ -370,6 +391,16 @@
     <!-- -------------------- About --------------------  -->
 
     <section class="about" id="about">
+      <div class="video-background">
+        <div class="video-foreground">
+          <iframe
+            src="https://www.youtube.com/embed/u43uH-kQpzk?controls=0&showinfo=0&rel=0&autoplay=1&playlist=W0LHTWG-UmQ&start=22&mute=1"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+
       <div class="about-box">
         <h1>Notre philosophie</h1>
         <p>
